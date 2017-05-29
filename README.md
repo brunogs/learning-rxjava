@@ -18,4 +18,4 @@ OnNext+ OnError => infinte stream events failling
 
 "_As a matter of fact Observer is the core abstraction for listening in RxJava. Yet if you want even greater control, Subscriber (Observers abstract implementation) is even more powerful._"
 
-
+"_Of course, you must keep in mind that cache() plus infinite stream is the recipe for a disaster_"
