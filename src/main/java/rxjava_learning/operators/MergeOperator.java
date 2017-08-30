@@ -1,5 +1,6 @@
 package rxjava_learning.operators;
 
+
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import rx.Observable;
@@ -8,20 +9,18 @@ import rxjava_learning.Logger;
 import javax.annotation.PostConstruct;
 import java.util.concurrent.TimeUnit;
 
-@Profile("zip")
+@Profile("merge")
 @Component
-public class ZipOperator {
+public class MergeOperator {
 
     @PostConstruct
     public void init() {
 
-        //Transmit event only when both observable has messages
-        Observable.zip(
+        //Transmit event from any Observable merged
+        Observable.merge(
                 Observable.interval(1, TimeUnit.SECONDS).timestamp(),
-                Observable.interval(500, TimeUnit.MILLISECONDS).timestamp(),
-                (first, second) -> first.getTimestampMillis() + second.getTimestampMillis()
+                Observable.interval(500, TimeUnit.MILLISECONDS).timestamp()
         ).subscribe(Logger::log);
-
 
     }
 
