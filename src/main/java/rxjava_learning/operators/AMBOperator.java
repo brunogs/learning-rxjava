@@ -23,7 +23,7 @@ public class AMBOperator {
 
     }
 
-    Observable<String> stream(int initialDelay, int interval, String name) {
+    private Observable<String> stream(int initialDelay, int interval, String name) {
         return Observable
                 .interval(initialDelay, interval, MILLISECONDS)
                 .map(x -> name + x)
