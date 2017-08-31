@@ -9,7 +9,6 @@ import rxjava_learning.apply_existing_application.domain.Person;
 import rxjava_learning.apply_existing_application.repository.PersonRepository;
 
 import javax.annotation.PostConstruct;
-import java.util.concurrent.TimeUnit;
 
 @Profile("defer")
 @Component
