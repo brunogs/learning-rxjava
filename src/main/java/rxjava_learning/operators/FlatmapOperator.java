@@ -21,31 +21,33 @@ import static rx.Observable.just;
 public class FlatmapOperator {
 
     @PostConstruct
-    public void init() {
+    public void init() throws InterruptedException {
 
-        Observable.from(loadCustomers())
+        /*Observable.from(loadCustomers())
                 .flatMap(customer -> Observable.from(customer.getOrders()))
                 .subscribe(Logger::log);
 
         Observable.from(loadCustomers())
                 .flatMapIterable(Customer::getOrders)
                 .subscribe(Logger::log);
+                */
 
         just(10L, 1L)
                 .flatMap(x ->
                         just(x).delay(x, TimeUnit.SECONDS))
                 .subscribe(Logger::log);
 
+        TimeUnit.SECONDS.sleep(10);
 
+        Logger.log("teste");
 
         just(DayOfWeek.SUNDAY, DayOfWeek.MONDAY)
                 .flatMap(this::loadRecordsFor)
                 .subscribe(Logger::log);
 
-        just(DayOfWeek.SUNDAY, DayOfWeek.MONDAY)
+        /*just(DayOfWeek.SUNDAY, DayOfWeek.MONDAY)
                 .concatMap(this::loadRecordsFor)
-                .subscribe(Logger::log);
-
+                .subscribe(Logger::log);*/
     }
 
     private List<Customer> loadCustomers() {
