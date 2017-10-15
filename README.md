@@ -25,6 +25,9 @@ OnNext+ OnError => infinte stream events failling
 # flatMap
 > _What flatMap() essentially does is take a master sequence (Observable) of values appearing over time (events) and replaces each of the events with an independent subsequence. These subsequences are generally unrelated to one another and to the event that generated them from master sequence. To make it clear, you no longer have a single the master sequence but a set of Observables, each working on its own, coming and going over time. Therefore, flatMap() cannot give any guarantee about what order of those subevents will arrive at the downstream operator/subscriber._
 
+# buffer
+- Allow to buffer messages by event count and by interval time
+
 
 ## About C10k problem
 > The classic thread per connection model struggles to solve the C10k problem. With 10,000 threads we do the following:
